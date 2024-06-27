@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Lion",
+    "voice": "Roar",
+    "imagePath": "images/lion.png",
+    "voiceMedia": "/lion.mp3",
+    "nameSound": "/audio/Sher.m4a"
+  },
+  {
+    "name": "Dog",
+    "voice": "Gaf",
+    "imagePath": "images/kuchuk.png",
+    "voiceMedia": "/dog.mp3",
+    "nameSound": "/audio/kuchuk.m4a"
+  },
+  {
+    "name": "Yolbars",
+    "voice": "Yay",
+    "imagePath": "images/yolbars.png",
+    "voiceMedia": "/lion.mp3",
+    "nameSound": "/audio/Yolbars.m4a"
+  }
+]
