@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from "react";
-import Draggable from "react-draggable";
+import React, { useRef, useState } from "react";
+import "../App.css";
+import Draggable from "./Draggable";
 
 export default function DragbleAnimal(props) {
   const voiceRef = useRef();
   const nameSoundRef = useRef();
   const { animal } = props;
+  const [success, set_success] = useState(false);
 
   const eventLogger = (e, data) => {
     console.log("Event: ", e);
@@ -17,23 +19,26 @@ export default function DragbleAnimal(props) {
     const YDropOffset = Math.abs(event.clientY - animal.targetPosition[1]);
     console.log(XDropOffset, YDropOffset);
     if (XDropOffset < 100 && YDropOffset < 100) {
-      console.log('SUCCESS!!!!')
+      console.log("SUCCESS!!!!");
+      set_success(true);
     }
-  }
+  };
 
   const imagePath = require(`../${animal?.imagePath}`);
   return (
     <Draggable
-      handle=".handle"
       defaultPosition={{ x: animal.position[0], y: animal.position[1] }}
-      position={null}
-      //   grid={[25, 25]}
+      position={
+        success
+          ? { x: animal.targetPosition[0], y: animal.targetPosition[1] }
+          : null
+      }
       scale={1}
       onStart={() => eventLogger}
       onDrag={() => eventLogger}
       onStop={handleDragEnd}
     >
-      <div className="handle" style={{ cursor: "pointer" }}>
+      <div className="handle float" style={{ cursor: "pointer" }}>
         <img src={imagePath} alt={animal?.name} width={100} />
         <audio ref={voiceRef} src={animal?.voiceMedia}></audio>
         <audio ref={nameSoundRef} src={animal?.nameSound}></audio>

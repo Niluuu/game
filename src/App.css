@@ -11,33 +11,8 @@
   overflow: hidden;
 }
 
-.row_flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 500px;
+.float {
+  position: absolute !important;
+  left: 0;
+  top: 0;
 }
-
-/* .animal {
-  width: 300px;
-  height: 80px;
-}
-
-.drop_img {
-  position: relative;
-  top: 15%;
-}
-
-.drag_img {
-  position: relative;
-  top: 65%;
-}
-
-.main_context {
-  display: flex;
-}
-
-.first_game {
-  margin: auto;
-  height: 100vh;
-} */

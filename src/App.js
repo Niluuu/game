@@ -18,8 +18,8 @@ const animalsWithPosition = (animals) => {
 function App() {
   return (
     <div className="layout">
-      <div className="first_game">
-        <div className="row_flex drop_img">
+      <div className="">
+        <div className="">
           {animalsWithPosition(animals).map((animal) => (
             <div
               key={animal.id}
@@ -40,7 +40,7 @@ function App() {
           ))}
         </div>
 
-        <div className="row_flex">
+        <div className="">
           {animalsWithPosition(animals).map((animal) => (
             <DragbleAnimal key={animal.id} animal={animal} />
           ))}
