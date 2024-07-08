@@ -26,6 +26,9 @@ function App() {
               id={animal.id}
               style={{
                 opacity: "0.5",
+                position: "absolute",
+                left: `${animal.targetPosition[0]}px`,
+                top: `${animal.targetPosition[1]}px`,
               }}
             >
               <img
@@ -37,12 +40,9 @@ function App() {
           ))}
         </div>
 
-        <div className="row_flex drag_img">
+        <div className="row_flex">
           {animalsWithPosition(animals).map((animal) => (
-            <DragbleAnimal
-              key={animal.id}
-              animal={animal}
-            />
+            <DragbleAnimal key={animal.id} animal={animal} />
           ))}
         </div>
       </div>
