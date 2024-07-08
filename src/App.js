@@ -1,76 +1,14 @@
-import { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import animals from "./animal.json";
-
-import React, { useState } from "react";
-import { DndContext } from "@dnd-kit/core";
-import Draggable from "./Draggble";
-import Droppable from "./Droppable";
-
-function Example(props) {
-  const { animal } = props;
-  const [parent, setParent] = useState(null);
-  const voiceRef = React.useRef(null);
-  const nameSoundRef = React.useRef(null);
-
-  const imagePath = require(`./${animal.imagePath}`);
-
-  const draggable = (
-    <Draggable id={animal.name} key={animal.name} left={animal.left}>
-      <img src={imagePath} alt={animal.name} width={100} />
-    </Draggable>
-  );
-
-  return (
-    <DndContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
-      {!parent ? draggable : null}
-      <Droppable id={animal.name} left={animal.left}>
-        {parent === animal.name ? (
-          <Draggable id={animal.name} key={animal.name} left={animal.left}>
-            <img
-              src={imagePath}
-              alt={animal.name}
-              width={100}
-              className="base_img"
-            />
-          </Draggable>
-        ) : (
-          <img
-            src={imagePath}
-            alt={animal.name}
-            width={100}
-            className="drop_img"
-          />
-        )}
-      </Droppable>
-      <audio ref={voiceRef} src={animal.voiceMedia}></audio>
-      <audio ref={nameSoundRef} src={animal.nameSound}></audio>
-    </DndContext>
-  );
-
-  function handleDragEnd({ over }) {
-    setParent(over ? over.id : null);
-
-    if (voiceRef.current) {
-      voiceRef.current.play();
-    }
-  }
-
-  function handleDragStart({ over }) {
-    setParent(over ? over.id : null);
-
-    if (nameSoundRef.current) {
-      nameSoundRef.current.volume = 0.5;
-      nameSoundRef.current.play();
-    }
-  }
-}
+import DragbleAnimal from "./components/DragbleAnimal";
 
 const animalsWithPosition = (animals) => {
   let result = animals.map((animal, index) =>
     Object.assign({
       ...animal,
-      left: index * 200,
+      x: index * 200,
+      y: 200,
     })
   );
 
@@ -80,10 +18,33 @@ const animalsWithPosition = (animals) => {
 function App() {
   return (
     <div className="layout">
-      <div className="row_flex first_game">
-        {animalsWithPosition(animals).map((animal) => (
-          <Example animal={animal} />
-        ))}
+      <div className="first_game">
+        <div className="row_flex drop_img">
+          {animalsWithPosition(animals).map((animal) => (
+            <div
+              key={animal.id}
+              id={animal.id}
+              style={{
+                opacity: "0.5",
+              }}
+            >
+              <img
+                src={require(`./${animal?.imagePath}`)}
+                alt={animal?.name}
+                width={100}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="row_flex drag_img">
+          {animalsWithPosition(animals).map((animal) => (
+            <DragbleAnimal
+              key={animal.id}
+              animal={animal}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,23 +1,38 @@
 [
   {
+    "id": "1",
     "name": "Lion",
     "voice": "Roar",
     "imagePath": "images/lion.png",
     "voiceMedia": "/lion.mp3",
-    "nameSound": "/audio/Sher.m4a"
+    "nameSound": "/audio/Sher.m4a",
+    "position": {
+      "x": 500,
+      "y": 200
+    }
   },
   {
+    "id": "2",
     "name": "Dog",
     "voice": "Gaf",
     "imagePath": "images/kuchuk.png",
     "voiceMedia": "/dog.mp3",
-    "nameSound": "/audio/kuchuk.m4a"
+    "nameSound": "/audio/kuchuk.m4a",
+    "position": {
+      "x": 900,
+      "y": 200
+    }
   },
   {
+    "id": "3",
     "name": "Yolbars",
     "voice": "Yay",
     "imagePath": "images/yolbars.png",
     "voiceMedia": "/lion.mp3",
-    "nameSound": "/audio/Yolbars.m4a"
+    "nameSound": "/audio/Yolbars.m4a",
+    "position": {
+      "x" : 1300,
+      "y": 200
+    }
   }
 ]
