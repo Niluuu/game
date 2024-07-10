@@ -19,7 +19,6 @@ export default function DragbleAnimal(props) {
     const YDropOffset = Math.abs(event.clientY - animal.targetPosition[1]);
     console.log(XDropOffset, YDropOffset);
     if (XDropOffset < 100 && YDropOffset < 100) {
-      alert("good!");
       set_success(true);
       onCorrectPlacement(animal.id);
       nameSoundRef.current.play();

@@ -1,13 +1,20 @@
 .layout {
   /* Specify the URL of the background image */
   background-image: url("./images/layout.jpg");
-  /* Set background size to cover the entire container */
+  /* Set background size to cover the entire viewport */
   background-size: cover;
   /* Center the background image */
   background-position: center;
   /* Optional: Add other background properties such as color */
   background-color: #f0f0f0; /* Fallback color in case the image is not available */
+  /* Set height and width to 100% of the viewport */
   height: 100vh;
+  width: 100vw;
+  /* Remove any default margin */
+  margin: 0;
+  /* Ensure the element takes up full height */
+  min-height: 100vh;
+  /* Prevent scrolling */
   overflow: hidden;
 }
 

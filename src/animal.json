@@ -7,7 +7,7 @@
     "voiceMedia": null,
     "nameSound": "/audio/Sher.m4a",
     "position": [100, 500],
-    "targetPosition": [100, 200]
+    "targetPosition": [100, 300]
   },
   {
     "id": "2",
@@ -16,8 +16,8 @@
     "imagePath": "images/kuchuk.png",
     "voiceMedia": null,
     "nameSound": "/audio/kuchuk.m4a",
-    "position": [300, 500],
-    "targetPosition": [300, 200]
+    "position": [200, 500],
+    "targetPosition": [200, 300]
   },
   {
     "id": "3",
@@ -26,8 +26,8 @@
     "imagePath": "images/yolbars.png",
     "voiceMedia": null,
     "nameSound": "/audio/Yolbars.m4a",
-    "position": [500, 500],
-    "targetPosition": [600, 200]
+    "position": [300, 500],
+    "targetPosition": [300, 300]
   },
   {
     "id": "4",
@@ -37,7 +37,7 @@
     "voiceMedia": null,
     "nameSound": "/audio/Timsox.m4a",
     "position": [100, 500],
-    "targetPosition": [100, 200]
+    "targetPosition": [100, 300]
   },
   {
     "id": "5",
@@ -46,8 +46,8 @@
     "imagePath": "images/zebra.png",
     "voiceMedia": null,
     "nameSound": "/audio/Zebra.m4a",
-    "position": [300, 500],
-    "targetPosition": [300, 200]
+    "position": [200, 500],
+    "targetPosition": [200, 300]
   },
   {
     "id": "6",
@@ -56,8 +56,8 @@
     "imagePath": "images/sigir.png",
     "voiceMedia": null,
     "nameSound": "/audio/Sigir.m4a",
-    "position": [500, 500],
-    "targetPosition": [600, 200]
+    "position": [300, 500],
+    "targetPosition": [300, 300]
   },
   {
     "id": "7",
@@ -67,7 +67,7 @@
     "voiceMedia": null,
     "nameSound": "/audio/Quyon.m4a",
     "position": [100, 500],
-    "targetPosition": [100, 200]
+    "targetPosition": [100, 300]
   },
   {
     "id": "8",
@@ -76,8 +76,8 @@
     "imagePath": "images/panda.png",
     "voiceMedia": null,
     "nameSound": "/audio/Panda.m4a",
-    "position": [300, 500],
-    "targetPosition": [300, 200]
+    "position": [200, 500],
+    "targetPosition": [200, 300]
   },
   {
     "id": "9",
@@ -86,8 +86,8 @@
     "imagePath": "images/ot.png",
     "voiceMedia": null,
     "nameSound": "/audio/Ot.m4a",
-    "position": [500, 500],
-    "targetPosition": [600, 200]
+    "position": [300, 500],
+    "targetPosition": [300, 300]
   },
   {
     "id": "10",
@@ -97,7 +97,7 @@
     "voiceMedia": null,
     "nameSound": "/audio/Quyon.m4a",
     "position": [100, 500],
-    "targetPosition": [100, 200]
+    "targetPosition": [100, 300]
   },
   {
     "id": "11",
@@ -106,8 +106,8 @@
     "imagePath": "images/maymun.png",
     "voiceMedia": null,
     "nameSound": "/audio/Maymun.m4a",
-    "position": [300, 500],
-    "targetPosition": [300, 200]
+    "position": [200, 500],
+    "targetPosition": [200, 300]
   },
   {
     "id": "12",
@@ -116,8 +116,8 @@
     "imagePath": "images/kiyik.png",
     "voiceMedia": null,
     "nameSound": "/audio/Kiyik.m4a",
-    "position": [500, 500],
-    "targetPosition": [600, 200]
+    "position": [300, 500],
+    "targetPosition": [300, 300]
   },
   {
     "id": "10",
@@ -127,7 +127,7 @@
     "voiceMedia": null,
     "nameSound": "/audio/Jirafa.m4a",
     "position": [100, 500],
-    "targetPosition": [100, 200]
+    "targetPosition": [100, 300]
   },
   {
     "id": "11",
@@ -136,8 +136,8 @@
     "imagePath": "images/begimot.png",
     "voiceMedia": "",
     "nameSound": "/audio/Begimot.m4a",
-    "position": [300, 500],
-    "targetPosition": [300, 200]
+    "position": [200, 500],
+    "targetPosition": [200, 300]
   },
   {
     "id": "12",
@@ -146,7 +146,7 @@
     "imagePath": "images/ayiq.png",
     "voiceMedia": null,
     "nameSound": "/audio/Ayiq.m4a",
-    "position": [500, 500],
-    "targetPosition": [600, 200]
+    "position": [200, 500],
+    "targetPosition": [200, 300]
   }
 ]
