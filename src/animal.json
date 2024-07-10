@@ -85,7 +85,7 @@
     "voice": "Yay",
     "imagePath": "images/ot.png",
     "voiceMedia": null,
-    "nameSound": "/audio/Sigir.m4a",
+    "nameSound": "/audio/Ot.m4a",
     "position": [500, 500],
     "targetPosition": [600, 200]
   },
@@ -123,7 +123,7 @@
     "id": "10",
     "name": "Jirafa",
     "voice": "",
-    "imagePath": "images/jraf.png",
+    "imagePath": "images/j.png",
     "voiceMedia": null,
     "nameSound": "/audio/Jirafa.m4a",
     "position": [100, 500],

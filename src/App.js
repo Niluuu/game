@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./App.css";
 import animals from "./animal.json";
 import DragbleAnimal from "./components/DragbleAnimal";
@@ -7,9 +7,9 @@ import SuccessAnimation from "./components/SuccessAnimation";
 const animalsWithPosition = (animals) => {
   return animals.map((animal, index) => ({
     ...animal,
-    x: index * 200,
-    y: 200,
-    targetPosition: [index * 200, 200], // Assuming this is the correct position
+    x: (index % 3) * 200, // This ensures consistent horizontal spacing
+    y: Math.floor(index / 3) * 200 + 200, // This ensures consistent vertical spacing
+    targetPosition: [animal.targetPosition[0], animal.targetPosition[1]],
   }));
 };
 
@@ -18,37 +18,39 @@ function App() {
   const [currentGroup, setCurrentGroup] = useState(0);
   const [correctlyPlaced, setCorrectlyPlaced] = useState([]);
   const [showAnimation, setShowAnimation] = useState(false);
+  const successAnimationRef = useRef();
+  const allAnimalsWithPosition = useRef(animalsWithPosition(animals));
 
   useEffect(() => {
-    const initialAnimals = animalsWithPosition(animals);
-    setCurrentAnimals(initialAnimals.slice(0, 3));
+    setCurrentAnimals(allAnimalsWithPosition.current.slice(0, 3));
   }, []);
+
+  const playSuccessAnimation = () => {
+    setShowAnimation(true);
+    if (successAnimationRef.current) {
+      successAnimationRef.current.playAudio();
+    }
+    setTimeout(() => {
+      setShowAnimation(false);
+      setCurrentGroup((prevGroup) => {
+        const nextGroup = prevGroup + 1;
+        setCurrentAnimals(
+          allAnimalsWithPosition.current.slice(
+            nextGroup * 3,
+            (nextGroup + 1) * 3
+          )
+        );
+        return nextGroup;
+      });
+    }, 2000);
+  };
 
   useEffect(() => {
     if (
       correctlyPlaced.length === (currentGroup + 1) * 3 &&
       correctlyPlaced.length < animals.length
     ) {
-       setTimeout(() => {
-        setShowAnimation(false);
-        setCurrentGroup(currentGroup + 1);
-        const nextGroupAnimals = animalsWithPosition(animals).slice(
-          (currentGroup + 1) * 3,
-          (currentGroup + 2) * 3
-        );
-        setCurrentAnimals(nextGroupAnimals);
-      }, 2000);
-      setShowAnimation(true);
-
-      setTimeout(() => {
-        setShowAnimation(false);
-        setCurrentGroup(currentGroup + 1);
-        const nextGroupAnimals = animalsWithPosition(animals).slice(
-          (currentGroup + 1) * 3,
-          (currentGroup + 2) * 3
-        );
-        setCurrentAnimals(nextGroupAnimals);
-      }, 2000); // Increased delay to allow animation to play
+      playSuccessAnimation();
     }
   }, [correctlyPlaced, currentGroup]);
 
@@ -62,20 +64,23 @@ function App() {
     <div className="layout">
       <div className="">
         <div className="">
-          {currentAnimals.map((animal) => (
+          {allAnimalsWithPosition.current.map((animal) => (
             <div
               key={animal.id}
               id={animal.id}
               style={{
-                opacity: "0.5",
+                opacity: currentAnimals.some((a) => a.id === animal.id)
+                  ? "0.5"
+                  : "0",
                 position: "absolute",
                 left: `${animal.targetPosition[0]}px`,
                 top: `${animal.targetPosition[1]}px`,
+                transition: "opacity 0.5s ease-in-out",
               }}
             >
               <img
-                src={require(`./${animal?.imagePath}`)}
-                alt={animal?.name}
+                src={require(`./${animal.imagePath}`)}
+                alt={animal.name}
                 width={100}
               />
             </div>
@@ -92,7 +97,7 @@ function App() {
           ))}
         </div>
       </div>
-      <SuccessAnimation show={showAnimation} />
+      <SuccessAnimation ref={successAnimationRef} show={showAnimation} />
     </div>
   );
 }
