@@ -8,6 +8,7 @@ const Draggable = ({
   onStart,
   onDrag,
   onStop,
+  disabled,
 }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [translate, setTranslate] = useState(defaultPosition || { x: 0, y: 0 });
@@ -21,6 +22,9 @@ const Draggable = ({
   }, [position]);
 
   const handleStart = (clientX, clientY) => {
+    if (disabled) {
+        return;
+    }
     setIsDragging(true);
     lastPositionRef.current = { x: clientX, y: clientY };
     if (onStart) onStart({ clientX, clientY });
@@ -87,6 +91,7 @@ const Draggable = ({
   return (
     <div
       ref={dragRef}
+      draggable={false}
       style={{
         transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`,
         cursor: isDragging ? "grabbing" : "grab",

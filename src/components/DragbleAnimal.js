@@ -5,7 +5,7 @@ import Draggable from "./Draggable";
 export default function DragbleAnimal(props) {
   const voiceRef = useRef();
   const nameSoundRef = useRef();
-  const { animal } = props;
+  const { animal, onCorrectPlacement } = props;
   const [success, set_success] = useState(false);
 
   const eventLogger = (e, data) => {
@@ -19,8 +19,10 @@ export default function DragbleAnimal(props) {
     const YDropOffset = Math.abs(event.clientY - animal.targetPosition[1]);
     console.log(XDropOffset, YDropOffset);
     if (XDropOffset < 100 && YDropOffset < 100) {
-      console.log("SUCCESS!!!!");
+      alert("good!");
       set_success(true);
+      onCorrectPlacement(animal.id);
+      nameSoundRef.current.play();
     }
   };
 
@@ -37,6 +39,7 @@ export default function DragbleAnimal(props) {
       onStart={() => eventLogger}
       onDrag={() => eventLogger}
       onStop={handleDragEnd}
+      disabled={success}
     >
       <div className="handle float" style={{ cursor: "pointer" }}>
         <img src={imagePath} alt={animal?.name} width={100} />
