@@ -120,7 +120,7 @@
     "targetPosition": [300, 300]
   },
   {
-    "id": "10",
+    "id": "13",
     "name": "Jirafa",
     "voice": "",
     "imagePath": "images/j.png",
@@ -130,7 +130,7 @@
     "targetPosition": [100, 300]
   },
   {
-    "id": "11",
+    "id": "14",
     "name": "Begimot",
     "voice": "Gaf",
     "imagePath": "images/begimot.png",
@@ -140,13 +140,13 @@
     "targetPosition": [200, 300]
   },
   {
-    "id": "12",
+    "id": "15",
     "name": "Ayiq",
     "voice": "Yay",
     "imagePath": "images/ayiq.png",
     "voiceMedia": null,
     "nameSound": "/audio/Ayiq.m4a",
-    "position": [200, 500],
-    "targetPosition": [200, 300]
+    "position": [300, 500],
+    "targetPosition": [300, 300]
   }
 ]

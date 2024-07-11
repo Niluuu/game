@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import itemPick from "../audio/item-pick.mp3";
 
 const Draggable = ({
   children,
@@ -14,6 +15,7 @@ const Draggable = ({
   const [translate, setTranslate] = useState(defaultPosition || { x: 0, y: 0 });
   const dragRef = useRef(null);
   const lastPositionRef = useRef({ x: 0, y: 0 });
+  const itemPickAudio = useRef(new Audio(itemPick));
 
   useEffect(() => {
     if (position) {
@@ -23,7 +25,7 @@ const Draggable = ({
 
   const handleStart = (clientX, clientY) => {
     if (disabled) {
-        return;
+      return;
     }
     setIsDragging(true);
     lastPositionRef.current = { x: clientX, y: clientY };
@@ -60,6 +62,8 @@ const Draggable = ({
 
   // Touch event handlers
   const handleTouchStart = (e) => {
+    itemPickAudio.current.play();
+
     const touch = e.touches[0];
     handleStart(touch.clientX, touch.clientY);
   };
