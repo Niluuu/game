@@ -3,14 +3,17 @@ import SuccessAnimation from "../components/SuccessAnimation";
 import { Link } from "react-router-dom";
 import "../App.css";
 import toys from "../toys.json";
+import itemPick from "../audio/item-pick.mp3";
 
 function GameOne() {
   const [showAnimation, setShowAnimation] = useState(false);
   const successAnimationRef = useRef();
   const questionVoise = useRef();
+  const pick = useRef(new Audio(itemPick));
   const [selectedToy, setselectedToy] = useState([]);
 
   const getToy = () => {
+    // Function to shuffle the array
     const shuffleArray = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -19,13 +22,13 @@ function GameOne() {
       return array;
     };
 
-    // Randomly select toys
-    const randomlySelectToys = () => {
+    // Randomly select a toy
+    const randomlySelectToy = () => {
       const shuffledToys = shuffleArray([...toys]);
-      return shuffledToys.slice(0, 1);
+      return [shuffledToys[0]]; // Return the first item from the shuffled array
     };
 
-    setselectedToy(randomlySelectToys());
+    setselectedToy(randomlySelectToy());
   };
 
   useEffect(() => {
@@ -43,7 +46,10 @@ function GameOne() {
   };
 
   const handleClick = (id) => {
-    console.log("id", id);
+    pick.current.volume = 0.4;
+
+    pick.current.play();
+
     if (id === selectedToy[0].id) {
       playSuccessAnimation();
 
