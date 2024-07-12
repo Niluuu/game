@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import animals from "../animal.json";
 import DragbleAnimal from "../components/DragbleAnimal";
 import SuccessAnimation from "../components/SuccessAnimation";
+import { Link } from "react-router-dom";
 import "../App.css";
 
 const animalsWithPosition = (animals) => {
@@ -63,6 +64,14 @@ function GameOne() {
   return (
     <div className="layout">
       <div className="">
+        <Link to="/">
+          <img
+            src={require(`../images/back.png`)}
+            alt="game"
+            width={100}
+            className="transform rotate-180"
+          />
+        </Link>
         <div className="">
           {allAnimalsWithPosition.current.map((animal) => (
             <div
@@ -79,7 +88,9 @@ function GameOne() {
               }}
             >
               <img
-                src={animal.imagePath ? require(`../${animal.imagePath}`) : null}
+                src={
+                  animal.imagePath ? require(`../${animal.imagePath}`) : null
+                }
                 alt={animal.name}
                 width={100}
               />

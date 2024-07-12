@@ -63,6 +63,7 @@ const Draggable = ({
   // Touch event handlers
   const handleTouchStart = (e) => {
     itemPickAudio.current.play();
+    itemPickAudio.current.volume = 0.1;
 
     const touch = e.touches[0];
     handleStart(touch.clientX, touch.clientY);

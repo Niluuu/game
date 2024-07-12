@@ -7,6 +7,7 @@ const SuccessAnimation = ({ show }) => {
   const timeoutRef = useRef(null);
 
   useEffect(() => {
+    audioRef.current.volume = 0.4;
     if (show) {
       // Clear any existing timeout
       if (timeoutRef.current) {

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "jiraf",
+    "imagePath": "images/toys/jiraf.png",
+    "questionVoise": "/audio/Jrafa.m4a"
+  },
+  {
+    "id": 2,
+    "name": "horse",
+    "imagePath": "images/toys/horse.png",
+    "questionVoise": "/audio/Ot-top.m4a"
+  },
+  {
+    "id": 3,
+    "name": "kamaz",
+    "imagePath": "images/toys/kamaz.png",
+    "questionVoise": "/audio/Kamaz.m4a"
+  },
+  {
+    "id": 4,
+    "name": "orde",
+    "imagePath": "images/toys/orde.png",
+    "questionVoise": "/audio/Ordak.m4a"
+  },
+  {
+    "id": 5,
+    "name": "poyezd",
+    "imagePath": "images/toys/poyezd.png",
+    "questionVoise": "/audio/Paravoz.m4a"
+  },
+  {
+    "id": 6,
+    "name": "raket",
+    "imagePath": "images/toys/raket.png",
+    "questionVoise": "/audio/Raketa.m4a"
+  }
+]
