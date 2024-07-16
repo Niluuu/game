@@ -64,7 +64,7 @@ function GameOne() {
   return (
     <div className="layout">
       <div className="">
-        <Link to="/">
+        <Link to="/" className="absolute top-0 left-0">
           <img
             src={require(`../images/back.png`)}
             alt="game"
@@ -108,7 +108,7 @@ function GameOne() {
           ))}
         </div>
       </div>
-      <SuccessAnimation ref={successAnimationRef} show={showAnimation} />
+      <SuccessAnimation ref={successAnimationRef} show={showAnimation} duration={3000} />
     </div>
   );
 }

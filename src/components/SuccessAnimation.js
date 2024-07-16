@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import thumbsUpGif from "../images/thumbs-up.gif";
 import successSound from "../audio/Zor.m4a";
 
-const SuccessAnimation = ({ show }) => {
+const SuccessAnimation = ({ show, duration }) => {
   const audioRef = useRef(new Audio(successSound));
   const timeoutRef = useRef(null);
 
@@ -19,7 +19,7 @@ const SuccessAnimation = ({ show }) => {
         audioRef.current
           .play()
           .catch((error) => console.error("Audio playback failed:", error));
-      }, 3000);
+      }, duration);
     } else {
       // If the animation is hidden, clear the timeout and reset the audio
       if (timeoutRef.current) {

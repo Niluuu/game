@@ -42,7 +42,7 @@ function GameOne() {
     }
     setTimeout(() => {
       setShowAnimation(false);
-    }, 6000);
+    }, 2000);
   };
 
   const handleClick = (id) => {
@@ -55,7 +55,7 @@ function GameOne() {
 
       setTimeout(() => {
         getToy();
-      }, 4000);
+      }, 3000);
     } else {
     }
   };
@@ -102,7 +102,7 @@ function GameOne() {
           ))}
         </div>
       </div>
-      <SuccessAnimation ref={successAnimationRef} show={showAnimation} />
+      <SuccessAnimation ref={successAnimationRef} show={showAnimation} duration={100} />
     </div>
   );
 }
